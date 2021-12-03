@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 import Welcome from './screens/Welcome';
 import Ex1 from './screens/week2/Ex1';
 import Ex2 from './screens/week2/Ex2';
@@ -13,10 +15,11 @@ import Ex9 from './screens/week2/Ex9';
 import Ex10 from './screens/week2/Ex10';
 import Ex11 from './screens/week2/Ex11';
 import Ex12 from './screens/week2/Ex12';
-export default function App() {
-  return (
-    <Ex12 />
-  );
+import Greeting from './components/Greeting';
+import Travel from './screens/week3/Travel';
+export default function App(){
+  return  <Travel />
 }
+
 
 
