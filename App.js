@@ -17,8 +17,12 @@ import Ex11 from './screens/week2/Ex11';
 import Ex12 from './screens/week2/Ex12';
 import Greeting from './components/Greeting';
 import Travel from './screens/week3/Travel';
+import Card from './components/week3/Card';
+import Hotel from './components/week3/Hotel';
+import Menu from './components/week3/Menu';
+import Resort from './components/week3/Resort';
 export default function App(){
-  return  <Travel />
+  return  <Resort />
 }
 
 
