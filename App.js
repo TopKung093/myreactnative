@@ -21,8 +21,10 @@ import Card from './components/week3/Card';
 import Hotel from './components/week3/Hotel';
 import Menu from './components/week3/Menu';
 import Resort from './components/week3/Resort';
+import TotalHealth from './screens/week5/TotalHealth';
+
 export default function App(){
-  return  <Resort />
+  return  <TotalHealth />
 }
 
 
