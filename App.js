@@ -22,9 +22,11 @@ import Hotel from './components/week3/Hotel';
 import Menu from './components/week3/Menu';
 import Resort from './components/week3/Resort';
 import TotalHealth from './screens/week5/TotalHealth';
+import Home from './screens/week6/Home';
+
 
 export default function App(){
-  return  <TotalHealth />
+  return  <Home />;
 }
 
 
