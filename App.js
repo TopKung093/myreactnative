@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import RootStack from "./navigations/RootStack";
+import HomeStack from './navigations/HomeStack';
+import BottomTab from './navigations/BottomTab';
+import { StyleSheet, Text, View } from 'react-native';
 import Welcome from './screens/Welcome';
 import Ex1 from './screens/week2/Ex1';
 import Ex2 from './screens/week2/Ex2';
@@ -17,16 +20,17 @@ import Ex11 from './screens/week2/Ex11';
 import Ex12 from './screens/week2/Ex12';
 import Greeting from './components/Greeting';
 import Travel from './screens/week3/Travel';
-import Card from './components/week3/Card';
-import Hotel from './components/week3/Hotel';
-import Menu from './components/week3/Menu';
-import Resort from './components/week3/Resort';
-import TotalHealth from './screens/week5/TotalHealth';
+import Health from './screens/week5/TotalHealth';
 import Home from './screens/week6/Home';
-
-
-export default function App(){
-  return  <Home />;
+export default function App() {
+  return (
+    <NavigationContainer>
+            {/* <HomeStack /> */}
+            {/* <BottomTab /> */}
+            <RootStack />
+        </NavigationContainer>
+    
+  );
 }
 
 
