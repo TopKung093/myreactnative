@@ -1,36 +1,38 @@
-import React , {useEffect, useState } from "react";
+import React , {useEffect,useLayoutEffect, useState } from "react";
 import {  FlatList ,View , Text, TouchableOpacity,Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesome } from "@expo/vector-icons";
+import BookStorage from "../../storages/BookStorage";
+import BookLaravel from "../../services/BookLaravel";
 
 export default function Book() {  
-    const [ products, setProducts ] = useState([
-        { id: 1, name: "พัฒนา Application ด้วย React และ React Native", price: 330, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-1.jpg", },
-        { id: 2, name: "พัฒนาเว็บแอพพลิเคชันด้วย Firebase ร่วมกับ React", price: 229, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-2.jpg", },
-        { id: 3, name: "พัฒนา Web Apps ด้วย React Bootstrap + Redux", price: 349, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-3.jpg", },
-      ]);   
-      const navigation = useNavigation();
-      const readProducts = async () => {
-        try {
-          setRefresh(true);
-          const string_value = await AsyncStorage.getItem("@products");
-          let products = string_value != null ? JSON.parse(string_value) : [];
-          setProducts(products);
-          setRefresh(false);
-        } catch (e) {
-          // error reading value
-        }
-      };
-      useEffect(() => { readProducts(); }, []);
-      const [refresh, setRefresh] = useState(false)
+    const [ products, setProducts ] = useState([]);   
+    const navigation = useNavigation();
+    const loadBooks = async () => {
+      setRefresh(true);
+      //let products = await BookStorage.readItems();
+      let products = await BookLaravel.getItems();
+      setProducts(products);
+      setRefresh(false);
+    };
+  
+    useEffect(() => {
+      // WHEN MOUNT AND UPDATE
+      const unsubscribe = navigation.addListener("focus", () => {
+          loadBooks();
+      });
+      // WHEN UNMOUNT
+      return unsubscribe;
+    }, [navigation]);
+  
+    const [refresh, setRefresh] = useState(false);
   return (
     <View style={{ flex : 1 }}>
       <FlatList                 
                 data={products}      
                 numColumns={1}
                 refreshing={refresh}
-                onRefresh={() => { readProducts(); }}
+                onRefresh={() => { loadBooks(); }}
                 keyExtractor={item => item.id.toString()}
                 renderItem={ ({ item ,index }) => {
                         return (
