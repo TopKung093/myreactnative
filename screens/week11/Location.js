@@ -34,7 +34,7 @@ export default function Location() {
   }, [navigation]);
   //SCREEN UI
   return (
-    <View style={{ flex: 1, flexDirection : 'column' }}>
+    <View style={{ flex: 1, flexDirection : 'column',backgroundColor : "#BEBEBE" }}>
             {/* <Text>{ JSON.stringify(location) }</Text> */}
             <Text>{location ? new Date(location.timestamp).toString() : "-"}</Text>  
             <View style={{flexDirection : 'row', height : 70 , backgroundColor : "#50E3C2"}}>      

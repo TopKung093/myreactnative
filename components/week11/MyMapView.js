@@ -18,18 +18,6 @@ export default function MyMapView(props) {
       console.log(error);
     }
   };
-  const loadUserMark = async () => {
-    [
-
-    ]
-    try {
-      let response = await fetch(url_endpoint);
-      let items = await response.json();
-      setUserMark(items);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => { loadUniversities(); }, []);
   if (props.location) {
     //DISPLAY MAP ON YOUR LOCATION
@@ -56,7 +44,7 @@ export default function MyMapView(props) {
               if (props.recordLocation) {
                 console.log("SEND TO SERVER");
                 LocationLaravel.storeItem({
-                user_id: "Thanadol Kosonwut",
+                user_id: "Kaw",
                 latitude: event.nativeEvent.coordinate.latitude,
                 longitude: event.nativeEvent.coordinate.longitude,
                 });
