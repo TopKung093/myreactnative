@@ -66,7 +66,7 @@ export default function BookDetail() {
                 <ImageViewer imageUrls={[{ url: book.image, props: { } }]}
                     enableSwipeDown={true}
                     onCancel={()=>{ console.log("SwipeDown"); setModalVisible(false); }}
-                    //onSave={(uri)=>{ File.download(uri); }}
+                    onSave={(uri)=>{ File.download(uri); }}
                     />
       </Modal>
       </View>

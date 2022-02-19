@@ -1,6 +1,6 @@
 import * as mime from "mime";
 // const url_endpoint = "http://localhost/mylaravel8/public/api/book";
-const url_endpoint = "http://192.168.1.41/mylaravel8/public/api/book";
+const url_endpoint = "http://192.168.1.36/mylaravel8/public/api/book";
 
 const getItems = async () => {
   try {

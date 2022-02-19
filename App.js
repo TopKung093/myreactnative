@@ -22,14 +22,16 @@ import Greeting from './components/Greeting';
 import Travel from './screens/week3/Travel';
 import Health from './screens/week5/TotalHealth';
 import Home from './screens/week6/Home';
+import { AuthContext, AuthContextProvider } from "./hooks/AuthContextProvider";
 export default function App() {
   return (
-    <NavigationContainer>
+    <AuthContextProvider>
+        <NavigationContainer>
             {/* <HomeStack /> */}
             {/* <BottomTab /> */}
             <RootStack />
         </NavigationContainer>
-    
+    </AuthContextProvider>
   );
 }
 
